@@ -1,0 +1,38 @@
+@startuml
+
+'hide empty member
+'hide circles
+
+Object <|-- Str
+CharSequence <|.. Str
+
+class Str {
+    -{static} INIT_DIM :int = 16
+    -text :char[]
+    -dim :int
+    +Str(txt:String)
+    +Str(txt:CharSequence)
+    -expand(minDim:int)
+    +append(c:char)
+    +append(s:String)
+    +remove(from:int, to:int)
+    +toString() :String
+    +charAt(idx:int) :charAt
+    +length() :int
+    +subSequence(start:int,end:int) :CharSequence
+    +equals(:Object):boolean
+    }
+
+interface CharSequence{
+    +toString() :String
+    +charAt(idx:int) :charAt
+    +length() :int
+    +subSequence(start:int,end:int) :CharSequence
+}
+
+class Object {
+    +equals(:Object) :boolean
+    + toString() :String
+}
+
+@enduml
